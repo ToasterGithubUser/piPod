@@ -31,15 +31,15 @@ sudo apt install mpg123`
 🚀 Setup & Usage
 Clone this repo or copy the play_music.py script to your Pi:
 
-`git clone https://github.com/YOUR_USERNAME/pipod-shuffle.git'
+`git clone https://github.com/YOUR_USERNAME/pipod-shuffle.git`
 
 Add your MP3 files to the music folder:
 
-'mkdir -p ~/Music
-cp your_songs/*.mp3 ~/Music/'
+`mkdir -p ~/Music
+cp your_songs/*.mp3 ~/Music/`
 Run the player:
 
-'python3 play_music.py'
+`python3 play_music.py`
 🎮 Controls (from terminal)
 n → Next song
 
@@ -58,11 +58,4 @@ Name: PiPod Shuffle
 
 Command:
 
-'python3 /home/pi/pipod-shuffle/play_music.py &'
-📁 File Structure
-
-/home/pi/
-├── Music/           # Your MP3 files go here
-├── favorites.txt    # Auto-generated list of favorites
-└── pipod-shuffle/
-    └── play_music.py
+`python3 /home/pi/pipod-shuffle/play_music.py &`
