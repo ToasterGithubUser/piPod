@@ -25,25 +25,21 @@ The **PiPod Shuffle** is a minimalist offline MP3 player built with a Raspberry 
 
 Install `mpg123` with:
 
-```bash
-sudo apt update
-sudo apt install mpg123
+
+`sudo apt update
+sudo apt install mpg123`
 🚀 Setup & Usage
 Clone this repo or copy the play_music.py script to your Pi:
 
-```bash
-git clone https://github.com/YOUR_USERNAME/pipod-shuffle.git
-cd pipod-shuffle
-python3 play_music.py
+`git clone https://github.com/YOUR_USERNAME/pipod-shuffle.git'
+
 Add your MP3 files to the music folder:
 
-```bash
-mkdir -p ~/Music
-cp your_songs/*.mp3 ~/Music/
+'mkdir -p ~/Music
+cp your_songs/*.mp3 ~/Music/'
 Run the player:
 
-```bash
-python3 play_music.py
+'python3 play_music.py'
 🎮 Controls (from terminal)
 n → Next song
 
@@ -62,8 +58,7 @@ Name: PiPod Shuffle
 
 Command:
 
-'''bash
-python3 /home/pi/pipod-shuffle/play_music.py &
+'python3 /home/pi/pipod-shuffle/play_music.py &'
 📁 File Structure
 
 /home/pi/
