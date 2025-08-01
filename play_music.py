@@ -43,4 +43,52 @@ def load_favorites():
 def save_favorite(song):
     if song not in favorites:
         favorites.append(song)
-        with open(favorites_file, "_
+        with open(favorites_file, "a") as f:
+            f.write(song + "\n")
+        print(f"✅ Saved favorite: {song}")
+
+def keyboard_listener():
+    global shuffle, skip_song, current_song
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    tty.setcbreak(fd)
+    try:
+        while True:
+            key = sys.stdin.read(1).lower()
+            if key == 's':
+                shuffle = not shuffle
+                print("Shuffle mode:", "ON" if shuffle else "OFF")
+            elif key == 'n':
+                skip_song = True
+            elif key == 'f':
+                if current_song:
+                    save_favorite(current_song)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
+threading.Thread(target=keyboard_listener, daemon=True).start()
+
+while True:
+    if not playlist:
+        print("No MP3 files found. Waiting...")
+        time.sleep(10)
+        continue
+
+    if shuffle:
+        random.shuffle(playlist)
+
+    for song in playlist:
+        current_song = song
+        skip_song = False
+        song_path = os.path.join(music_dir, song)
+        play_song(song_path)
+
+    saved_favorites = load_favorites()
+    if saved_favorites:
+        print("🎵 Playing saved favorites...")
+        for fav in saved_favorites:
+            if fav in playlist:
+                current_song = fav
+                skip_song = False
+                song_path = os.path.join(music_dir, fav)
+                play_song(song_path, label="(Favorite) ")
