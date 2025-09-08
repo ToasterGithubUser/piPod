@@ -20,7 +20,8 @@ The **PiPod Shuffle** is a minimalist offline MP3 player built with a Raspberry 
 - Raspberry Pi 3B or newer  
 - Raspberry Pi OS (Lite or Desktop)  
 - Python 3  
-- vlc (audio player itself)  
+- vlc (audio player itself)
+- rpi_lcd
 - MP3 files placed in: `/home/andre/Music/`
 
 Install `vlc` with:
